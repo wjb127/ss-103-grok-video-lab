@@ -4,3 +4,4 @@ out/**
 !out/.gitkeep
 gallery/**
 !gallery/.gitkeep
+.vercel
