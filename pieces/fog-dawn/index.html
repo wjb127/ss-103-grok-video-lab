@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>안개 숲 새벽</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { font-family: ui-sans-serif, system-ui, sans-serif; color: #fff; background: #111; }
+    .bg, video { position: fixed; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .bg { background: #0c1018; }
+    video { display: none; }
+    video.on { display: block; }
+    .shade { position: fixed; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.55), rgba(0,0,0,.1) 68%); }
+    .copy { position: relative; z-index: 2; min-height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 12vh 8vw 10vh; max-width: 920px; }
+    a.back { position: fixed; top: 16px; left: 18px; z-index: 3; color: rgba(255,255,255,.72); font-size: 12px; text-decoration: none; }
+    h1 { margin: 0; font-size: clamp(40px, 6vw, 76px); font-weight: 560; letter-spacing: -0.045em; line-height: 1.05; }
+    p { margin: 16px 0 0; max-width: 28ch; font-size: clamp(16px, 2vw, 20px); line-height: 1.45; color: rgba(255,255,255,.84); }
+  </style>
+</head>
+<body>
+  <a class="back" href="../../">← 목록</a>
+  <div class="bg" aria-hidden="true"></div>
+  <video id="bgv" data-src="bg.mp4" autoplay muted loop playsinline></video>
+  <div class="shade" aria-hidden="true"></div>
+  <div class="copy">
+    <h1>안개가 먼저<br>길을 엽니다</h1>
+    <p>새벽 숲은, 소리보다 공기가 먼저입니다.</p>
+  </div>
+  <script>
+    const v = document.getElementById("bgv");
+    if (v.dataset.src) {
+      v.src = v.dataset.src;
+      v.classList.add("on");
+      v.play().catch(() => {});
+    }
+  </script>
+</body>
+</html>
